@@ -24,8 +24,8 @@ namespace KartGame.Track
         Dictionary<IRacer, Checkpoint> m_RacerNextCheckpoints = new Dictionary<IRacer, Checkpoint> (16);
         TrackRecord m_SessionBestLap = TrackRecord.CreateDefault ();
         TrackRecord m_SessionBestRace = TrackRecord.CreateDefault ();
-        TrackRecord m_HistoricalBestLap;
-        TrackRecord m_HistoricalBestRace;
+        public TrackRecord m_HistoricalBestLap;
+        public TrackRecord m_HistoricalBestRace;
 
         public bool IsRaceRunning => m_IsRaceRunning;
 
@@ -87,7 +87,8 @@ namespace KartGame.Track
                 Debug.LogWarning ("There are currently " + checkpoints.Count + " checkpoints set on the Track Manager.  A minimum of 3 is recommended but kart control will not be enabled with 0.");
             
             m_HistoricalBestLap = TrackRecord.Load (trackName, 1);
-            m_HistoricalBestRace = TrackRecord.Load (trackName, raceLapTotal);
+            //m_HistoricalBestRace = TrackRecord.CreateDefault();
+            //m_HistoricalBestRace = TrackRecord.Load (trackName, raceLapTotal);
         }
 
         void OnEnable ()
@@ -149,7 +150,7 @@ namespace KartGame.Track
             }
 
             TrackRecord.Save (m_HistoricalBestLap);
-            TrackRecord.Save (m_HistoricalBestRace);
+            //TrackRecord.Save (m_HistoricalBestRace);
         }
 
         void CheckRacerHitCheckpoint (IRacer racer, Checkpoint checkpoint)
@@ -203,8 +204,8 @@ namespace KartGame.Track
                         if (m_SessionBestRace.time > raceTime)
                             m_SessionBestRace.SetRecord (trackName, raceLapTotal, racer, raceTime);
 
-                        if (m_HistoricalBestRace.time > raceTime)
-                            m_HistoricalBestLap.SetRecord (trackName, raceLapTotal, racer, raceTime);
+                        //if (m_HistoricalBestRace.time > raceTime)
+                        //    m_HistoricalBestLap.SetRecord (trackName, raceLapTotal, racer, raceTime);
 
                         racer.DisableControl ();
                         racer.PauseTimer ();

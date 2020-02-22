@@ -31,6 +31,7 @@ namespace KartGame.Track
         const float k_DefaultTime = float.PositiveInfinity;
         const string k_FolderName = "BinaryTrackRecordData";
         const string k_FileExtension = ".dat";
+        const string ficheroMejorVuelta = "RaceData";               //nombre de mi fichero
 
         /// <summary>
         /// Set all the information in a record.
@@ -67,7 +68,7 @@ namespace KartGame.Track
             if (!Directory.Exists(folderPath))
                 Directory.CreateDirectory(folderPath);
 
-            string dataPath = Path.Combine(folderPath, record.trackName + record.laps + k_FileExtension);
+            string dataPath = Path.Combine(folderPath, ficheroMejorVuelta + k_FileExtension);
 
             BinaryFormatter binaryFormatter = new BinaryFormatter();
 
@@ -90,7 +91,7 @@ namespace KartGame.Track
             if (!Directory.Exists(folderPath))
                 Directory.CreateDirectory(folderPath);
 
-            string dataPath = Path.Combine(folderPath, track + lapCount + k_FileExtension);
+            string dataPath = Path.Combine(folderPath, ficheroMejorVuelta + k_FileExtension);
 
             BinaryFormatter binaryFormatter = new BinaryFormatter();
 
