@@ -15,6 +15,7 @@ public class MainMenu : MonoBehaviour
     public string trackName;                            //Nombre del circuito. Necesario para cargar record de mejor vuelta.
 
     public TextMeshProUGUI Text_mejorVuelta;
+    public TextMeshProUGUI Text_TotalMonedas;
     string m_Path;
 
 
@@ -51,8 +52,9 @@ public class MainMenu : MonoBehaviour
 
     void LeerRecords()                                      //Lee el fichero con el récord y acualiza la etiqueta del menú.
     {
-        m_HistoricalBestLap = TrackRecord.Load(trackName, 1);   //Cargo el record guardado de la mejor vuelta.
+        m_HistoricalBestLap = TrackRecord.Load(trackName, 1);   //Cargo el record guardado de la mejor vuelta y el total de monedas.
         Text_mejorVuelta.text = "Mejor vuelta: " + m_HistoricalBestLap.time.ToString("F2");
+        Text_TotalMonedas.text = "Total Monedas: " + m_HistoricalBestLap.monedas.ToString();
     }
 
 }

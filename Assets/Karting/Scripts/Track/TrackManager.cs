@@ -11,6 +11,9 @@ namespace KartGame.Track
     /// </summary>
     public class TrackManager : MonoBehaviour
     {
+        public CanvasGroup menuGameOver;
+        public Animator anim;
+
         [Tooltip ("The name of the track in this scene.  Used for track time records.  Must be unique.")]
         public string trackName;
         [Tooltip ("Number of laps for the race.")]
@@ -107,8 +110,19 @@ namespace KartGame.Track
             }
         }
 
+
+        public void AlRecogerMoneda()
+        {
+            m_HistoricalBestLap.monedas++;
+        }
+
+
         void Start ()
         {
+            menuGameOver.GetComponent<MenuGameOver>().On_Off_MenuGameOver(false);
+            
+            
+
             if(checkpoints.Count == 0)
                 return;
             
@@ -150,7 +164,11 @@ namespace KartGame.Track
             }
 
             TrackRecord.Save (m_HistoricalBestLap);
-            //TrackRecord.Save (m_HistoricalBestRace);
+           
+
+            menuGameOver.GetComponent<MenuGameOver>().On_Off_MenuGameOver(true);
+
+
         }
 
         void CheckRacerHitCheckpoint (IRacer racer, Checkpoint checkpoint)
@@ -195,7 +213,12 @@ namespace KartGame.Track
                         m_SessionBestLap.SetRecord (trackName, 1, racer, lapTime);
 
                     if (m_HistoricalBestLap.time > lapTime)
-                        m_HistoricalBestLap.SetRecord (trackName, 1, racer, lapTime);
+                    {
+                        anim.Play("Anim_NuevoRecord",0, 0);         //Empiezo la animación de nuevo record
+                    
+                        m_HistoricalBestLap.SetRecord(trackName, 1, racer, lapTime);
+                    }
+
 
                     if (racerCurrentLap == raceLapTotal)
                     {

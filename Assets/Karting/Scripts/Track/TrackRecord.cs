@@ -28,6 +28,8 @@ namespace KartGame.Track
         /// </summary>
         public string name;
 
+        public int monedas;
+
         const float k_DefaultTime = float.PositiveInfinity;
         const string k_FolderName = "BinaryTrackRecordData";
         const string k_FileExtension = ".dat";

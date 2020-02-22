@@ -206,7 +206,7 @@ namespace KartGame.Track
             if (Mathf.Approximately(bestLapTime, -1f))
                 return;
 
-            m_StringBuilder.Append("Session Best Lap: ");
+            m_StringBuilder.Append("Best Lap: ");
             m_StringBuilder.Append(bestLapTime.ToString(".##"));
             m_StringBuilder.Append('\n');
         }
