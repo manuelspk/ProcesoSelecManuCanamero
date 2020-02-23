@@ -53,8 +53,18 @@ public class MainMenu : MonoBehaviour
     void LeerRecords()                                      //Lee el fichero con el récord y acualiza la etiqueta del menú.
     {
         m_HistoricalBestLap = TrackRecord.Load(trackName, 1);   //Cargo el record guardado de la mejor vuelta y el total de monedas.
-        Text_mejorVuelta.text = "Mejor vuelta: " + m_HistoricalBestLap.time.ToString("F2");
-        Text_TotalMonedas.text = "Total Monedas: " + m_HistoricalBestLap.monedas.ToString();
+
+        if(m_HistoricalBestLap.time.ToString()=="Infinity")     //En caso de que no existan récords de mejor vuelta, muestro el mensaje "No Records". Si no, muestro la mejor vuelta guardada en el fichero.
+        {
+            Text_mejorVuelta.text = "Best Lap: No Records";
+        }
+        else
+        {
+            Text_mejorVuelta.text = "Best Lap: " + m_HistoricalBestLap.time.ToString("F2");
+        }
+
+        
+        Text_TotalMonedas.text = "Coins: " + m_HistoricalBestLap.monedas.ToString();
     }
 
 }

@@ -45,6 +45,7 @@ namespace KartGame.KartSystems
 
         void Update ()
         {
+
             if (Input.GetKey (KeyCode.UpArrow))
                 m_Acceleration = 1f;
             else if (Input.GetKey (KeyCode.DownArrow))
@@ -79,5 +80,7 @@ namespace KartGame.KartSystems
         {
             m_FixedUpdateHappened = true;
         }
+
+
     }
 }

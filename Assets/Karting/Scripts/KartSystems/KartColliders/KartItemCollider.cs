@@ -30,7 +30,7 @@ public class KartItemCollider : MonoBehaviour
             //Sumo 1 al contador de monedas y lo muestro en la etiqueta de juego
 
             monedas++;
-            Text_Monedas.text = "Monedas: " + monedas.ToString();
+            Text_Monedas.text = "Coins: " + monedas.ToString();
 
 
             //Desactivo la moneda con el método de MonedaRespawn y sumo 1 al trackmanager para que contabilice el total de monedas y lo guarde en el fichero de récords.
