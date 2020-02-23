@@ -2,31 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Clase Moneda
 public class MonedaRespawn : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    
+    //Método para llamar cuando se recoja una moneda. Llama a una corrutina que desactiva el objeto durante 5 segundos.
     public void MonedaRecogida()
     {
         StartCoroutine(EsperaParaActivar());
     }
 
 
-
+    //Método para activar o desactivar la moneda.
     public void MonedaActiva(bool activo)
     {
         if(activo==true)
         {
+            //Desactivo su mesh y su collider, para que pueda volver a aparece a los 5 segundos. Si lo desactivara, no ejecutaría la corrutina.
             this.gameObject.GetComponent<Renderer>().enabled = true;
             this.gameObject.GetComponent<BoxCollider>().enabled = true;
         }
@@ -39,6 +31,7 @@ public class MonedaRespawn : MonoBehaviour
 
 
 
+    //Corrutina para volver a activar la moneda a los 5 segundos.
     IEnumerator EsperaParaActivar()
     {
         MonedaActiva(false);

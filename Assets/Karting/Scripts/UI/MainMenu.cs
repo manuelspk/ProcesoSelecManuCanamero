@@ -6,6 +6,8 @@ using KartGame.KartSystems;
 using KartGame.Track;
 using TMPro;
 
+//Clase del menú principal.
+
 public class MainMenu : MonoBehaviour
 {
 

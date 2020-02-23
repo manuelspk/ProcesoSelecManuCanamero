@@ -4,6 +4,9 @@ using UnityEngine;
 using KartGame.Track;
 using TMPro;
 
+
+//Clase para controlar lo relacionado con las colisiones del Kart.
+
 public class KartItemCollider : MonoBehaviour
 {
     public TrackManager trackManager;
@@ -25,10 +28,9 @@ public class KartItemCollider : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag=="Moneda")
+        //Si toco una moneda, sumo 1 al contador y lo muestro en la etiqueta de juego.
+        if (other.gameObject.tag=="Moneda")         
         {
-            //Sumo 1 al contador de monedas y lo muestro en la etiqueta de juego
-
             monedas++;
             Text_Monedas.text = "Coins: " + monedas.ToString();
 

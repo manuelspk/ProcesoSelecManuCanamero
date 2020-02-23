@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+//Clase del menú Game Over
+
 public class MenuGameOver : MonoBehaviour
 {
-    private string escenaMenu = "MainMenu";
+
+    private string escenaMenu = "MainMenu";             //Nombres de las escenas a cargar.
     private string escenaJuego = "SampleScene";
 
     // Start is called before the first frame update
@@ -20,13 +23,14 @@ public class MenuGameOver : MonoBehaviour
         
     }
 
+    //Al pulsar el botón Play Again, volvemos a cargar esta escena.
     public void AlPulsarPlayAgain()
     {
         SceneManager.LoadScene(escenaJuego);
     }
 
 
-
+    //Al pulsar el botón Back To Main Menu, volvemos a la escena inicial
     public void AlPulsarBackToMainMenu()
     {
         SceneManager.LoadScene(escenaMenu);
@@ -34,6 +38,7 @@ public class MenuGameOver : MonoBehaviour
 
 
 
+    //Método para ocultar o mostrar el Panel del menú Game Over.
     public void On_Off_MenuGameOver(bool activo)
     {
         if (activo == false)

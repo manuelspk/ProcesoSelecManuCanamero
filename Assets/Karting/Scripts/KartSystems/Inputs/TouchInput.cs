@@ -5,7 +5,7 @@ using UnityEngine;
 namespace KartGame.KartSystems
 {
     /// <summary>
-    /// A basic keyboard implementation of the IInput interface for all the input information a kart needs.
+    /// A basic touchscreen implementation of the IInput interface for all the input information a kart needs.
     /// </summary>
     public class TouchInput : MonoBehaviour, IInput
     {

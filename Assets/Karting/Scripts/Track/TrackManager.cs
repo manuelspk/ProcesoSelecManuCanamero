@@ -121,7 +121,6 @@ namespace KartGame.Track
         {
             menuGameOver.GetComponent<MenuGameOver>().On_Off_MenuGameOver(false);
             
-            
 
             if(checkpoints.Count == 0)
                 return;
@@ -164,8 +163,9 @@ namespace KartGame.Track
             }
 
             TrackRecord.Save (m_HistoricalBestLap);
-           
+            
 
+            //Muestro el menú Game Over
             menuGameOver.GetComponent<MenuGameOver>().On_Off_MenuGameOver(true);
 
 
@@ -214,8 +214,9 @@ namespace KartGame.Track
 
                     if (m_HistoricalBestLap.time > lapTime)
                     {
-                        anim.Play("Anim_NuevoRecord",0, 0);         //Empiezo la animación de nuevo record
-                    
+                        //Empiezo la animación de nuevo record
+                        anim.Play("Anim_NuevoRecord",0, 0);         
+
                         m_HistoricalBestLap.SetRecord(trackName, 1, racer, lapTime);
                     }
 
